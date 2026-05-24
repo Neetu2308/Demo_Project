@@ -34,7 +34,6 @@ test('login using valid cred ', async ({ page }) =>
     const loginpage = new LoginPageDemo(page)
     await loginpage.goto()
     const username = login_creds[0].username
-    console.log(username)
     await loginpage.login_action(  login_creds[0].username, login_creds[0].password)
 })
    
@@ -75,7 +74,7 @@ test('Select mobile',async({page})=>
       const loginpage=new LoginPageDemo(page)
       const dialogbox= page.waitForEvent('dialog')
     await loginpage.goto()
-    await loginpage.login_action(validcreds.username,validcreds.password)
+    await loginpage.login_action(  login_creds[0].username, login_creds[0].password)
     await expect(page.locator('#nameofuser')) .toContainText('Welcome neetus')
     const addtocart= new AddtoCartDemo(page)
     await addtocart.select_mobile()
@@ -93,7 +92,7 @@ test('Purchase a Monitor',async({page})=>
     const loginpage=new LoginPageDemo(page)
     const dialogbox= page.waitForEvent('dialog')
     await loginpage.goto()
-    await loginpage.login_action(validcreds.username,validcreds.password)
+   await loginpage.login_action(  login_creds[0].username, login_creds[0].password)
     const addtocart= new AddtoCartDemo(page)
     await addtocart.select_monitor()
     const dialog = await dialogbox
