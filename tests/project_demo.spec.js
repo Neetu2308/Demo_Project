@@ -1,8 +1,8 @@
 import { test,expect } from '@playwright/test'
 import { SignUpPageDemo } from '../pages/SignUpPageDemo'
 import { LoginPageDemo } from '../pages/LoginPageDemo'
-import { AddtoCartDemo } from '../pages/AddtoCartDemo' 
-import { Purchase } from '../pages/PurchaseDemo'
+import { AddtoCartDemo } from '../pages/AddtoCart' 
+import { Purchase } from '../pages/Purchase'
 import signupinfo from '../util/signup.json' 
 import userinfo from  '../util/userinfo.json' 
 import login_creds from '../util/login_creds.json' 
@@ -109,7 +109,7 @@ test ('Logout', async({page})=>
 {
     const loginpage=new LoginPageDemo(page)
     await loginpage.goto()
-     await loginpage.login_action(validcreds.username,validcreds.password)
+   await loginpage.login_action(  login_creds[0].username, login_creds[0].password)
     await expect(page.locator('#nameofuser')) .toContainText('Welcome neetus')
     await loginpage.logout()
     await expect(page.locator('#login2')).toHaveText('Log in')

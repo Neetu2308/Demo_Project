@@ -1,4 +1,4 @@
-import { AddtoCartDemo } from "./AddtoCartDemo"
+
 export class LoginPageDemo{
     constructor(page)
     {
@@ -22,7 +22,6 @@ export class LoginPageDemo{
         await this.login_name.fill(username)
         await this.login_pwd.fill(password)
         await this.login_button.click()
-          return new AddtoCartDemo(this.page)
     }
     async logout()
     {
